@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{# 将banner空置 #}
+{% block banner %}
+{% endblock banner %}
+
+{% block content %}
+    {# 设置标题 #}
+    <aside id="colorlib-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 breadcrumbs text-center">
+                    <h2>{{ source_obj.title }}</h2>
+                    <p><span>{{ source_obj.excerpt }}</span></p>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <div class="row">
+        <div class="col-md-3">
+            <img class="img-responsive" src="{% static source_obj.img %}" alt="">
+        </div>
+
+        <div class="col-md-6">
+            <p>{{ source_obj.body|safe }}</p>
+        </div>
+        <div class="col-md-3">
+            <img class="img-responsive" src="{% static source_obj.img %}" alt="">
+        </div>
+    </div>
+{% endblock content %}
+
+
+{# 将分页空置 #}
+{% block pagenation %}
+{% endblock pagenation %}

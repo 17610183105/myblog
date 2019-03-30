@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<nav class="colorlib-nav" role="navigation">
+    <div class="top-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2">
+                    <div id="colorlib-logo"><a href="index.html">kyne blog</a></div>
+                </div>
+                <div class="col-xs-10 text-right menu-1">
+                    {# 首页导航栏 #}
+                    <ul>
+                        <li class="active"><a href="{% url 'index' %}">首页</a></li>
+                        <li class="has-dropdown">
+                            <a href="{% url 'index' %}">博客</a>
+                            {# 博客分类 #}
+                            <ul class="dropdown">
+                                {% for type in all_type  %}
+                                    <li><a href="{% url 'index_type'  type.pk %}">{{ type.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="event.html">test</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

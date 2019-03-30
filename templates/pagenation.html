@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<div class="col-md-12 text-center">
+    <ul class="pagination">
+
+        <li class="{% if not contacts.has_previous %}disabled{% endif %}">
+            <a href="?page=1{{ url_info }}">首页</a>
+            <a href="{% if  contacts.has_previous %}?page={{ contacts.previous_page_number }}{% endif %}">上一页</a>
+        </li>
+
+
+        <li class="">
+            <a href="">第 {{ contacts.number }} 页,共 {{ contacts.paginator.num_pages }}页</a>
+        </li>
+
+        <li class="{% if not contacts.has_next %}disabled{% endif %}">
+            <a href="{% if contacts.has_next %}?page={{ contacts.next_page_number }}{% endif %}">下一页</a>
+            <a href="?page={{ contacts.paginator.num_pages }}">尾页</a>
+        </li>
+
+    </ul>
+</div>

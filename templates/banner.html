@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<aside id="colorlib-hero">
+    <div class="flexslider">
+        <ul class="slides">
+            {# 从数据库banner表中循环读取banner图 #}
+            {% for obj in all_banner %}
+                {# 如果数据库中status为False,就不展示 #}
+                {% if obj.status == True %}
+                <li style="background-image: url({% static obj.img %});">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-md-pull-3 col-sm-12 col-xs-12 col-md-offset-3 slider-text">
+                                <div class="slider-text-inner">
+                                    <div class="desc">
+                                        <p class="meta">
+                                            <span class="cat"><a href="">Event</a></span>
+                                            <span class="date">{{ obj.ctime }}</span>
+                                            <span class="pos">By <a href="">Kyne</a></span>
+                                        </p>
+                                        <h1>{{ obj.desc }}</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</aside>

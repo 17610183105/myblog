@@ -1,0 +1,73 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    {# 头部信息,样式导入 #}
+    {% block head %}
+        {% include 'head.html' %}
+    {% endblock head %}
+</head>
+
+
+<body>
+    {% block body %}
+
+        <div class="colorlib-loader"></div>
+
+        <div id="page">
+            {# 导航栏 #}
+            {% block nav %}
+                {% include 'nav.html' %}
+            {% endblock nav %}
+
+
+            {# 轮播图 #}
+            {% block banner %}
+                {% include 'banner.html' %}
+            {% endblock banner %}
+
+
+            {# 正文 #}
+            {% block content %}
+                {% include 'content.html' %}
+            {% endblock content %}
+
+
+                    {# 展示下部的图片组 #}
+            {% block showImages %}
+                {% include 'show images.html' %}
+            {% endblock showImages %}
+
+
+            {# 分页 #}
+            {% block pagenation %}
+                {% include 'pagenation.html' %}
+            {% endblock pagenation %}
+
+
+
+
+
+
+            {# 底部 #}
+            {% block footer %}
+{#                {% include 'footer.html' %}#}
+            {% endblock footer %}
+
+
+            {# 到顶部的按钮 #}
+            {% block totop %}
+                {% include 'totop.html' %}
+            {% endblock totop %}
+        </div>
+
+
+
+        {% block javascripts %}
+            {% include 'javascripts.html' %}
+        {% endblock javascripts %}
+
+    {% endblock body %}
+</body>
+</html>
