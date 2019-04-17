@@ -39,7 +39,13 @@ def index(request,type_id=None):
 #文章页面
 def show_article(request,article_id):
     obj = models.article.objects.get(pk=article_id)
-    obj.body = markdown.markdown(obj.body)
+    all_type = models.category.objects.all()
+    obj.body = markdown.markdown(obj.body,
+        extensions = [
+            'markdown.extensions.extra',    #缩写,表格等常用扩展
+            'markdown.extensions.codehilite',   #语法高亮显示
+        ]
+                                 )
     form_obj = articleForm(instance=obj)
     print(form_obj)
-    return render(request,"show_article.html",{"obj":form_obj,"source_obj":obj})
+    return render(request,"show_article.html",{"obj":form_obj,"source_obj":obj,"all_type":all_type})

@@ -13,7 +13,7 @@
                         <li class="has-dropdown">
                             <a href="{% url 'index' %}">博客</a>
                             {# 博客分类 #}
-                            <ul class="dropdown">
+                            <ul class=" dropdown">
                                 {% for type in all_type  %}
                                     <li><a href="{% url 'index_type'  type.pk %}">{{ type.name }}</a></li>
                                 {% endfor %}

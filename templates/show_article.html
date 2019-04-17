@@ -18,16 +18,16 @@
         </div>
     </aside>
     <div class="row">
-        <div class="col-md-3">
-            <img class="img-responsive" src="{% static source_obj.img %}" alt="">
-        </div>
+{#        <div class="col-md-3">#}
+{#            <img class="img-responsive" src="{% static source_obj.img %}" alt="">#}
+{#        </div>#}
 
-        <div class="col-md-6">
+        <div class="col-md-6 col-md-offset-3">
             <p>{{ source_obj.body|safe }}</p>
         </div>
-        <div class="col-md-3">
-            <img class="img-responsive" src="{% static source_obj.img %}" alt="">
-        </div>
+{#        <div class="col-md-3">#}
+{#            <img class="img-responsive" src="{% static source_obj.img %}" alt="">#}
+{#        </div>#}
     </div>
 {% endblock content %}
 
